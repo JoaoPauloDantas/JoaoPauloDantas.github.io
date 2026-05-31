@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>João Paulo Dantas | Analista de Sistemas ERP</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -13,93 +15,230 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
 body{
-    font-family:Segoe UI, Arial, sans-serif;
-    background:#f5f7fa;
-    color:#333;
-    line-height:1.6;
+    font-family:'Poppins',sans-serif;
+    background:#0f172a;
+    color:#f8fafc;
 }
 
-header{
-    background:linear-gradient(135deg,#0A66C2,#003366);
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(15,23,42,.95);
+    backdrop-filter:blur(10px);
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:1.3rem;
+    font-weight:700;
+    color:#38bdf8;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav a{
     color:white;
-    text-align:center;
-    padding:60px 20px;
+    text-decoration:none;
+    transition:.3s;
 }
 
-.profile-photo{
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    object-fit:cover;
-    border:5px solid white;
-    margin-bottom:20px;
+nav a:hover{
+    color:#38bdf8;
 }
 
-header h1{
-    font-size:42px;
-    margin-bottom:10px;
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:80px;
+    padding:120px 10%;
 }
 
-header p{
-    font-size:20px;
+.hero-text{
+    max-width:650px;
 }
 
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:30px;
-}
-
-.card{
-    background:white;
-    padding:30px;
-    margin-bottom:25px;
-    border-radius:15px;
-    box-shadow:0 3px 15px rgba(0,0,0,.08);
-}
-
-h2{
-    color:#0A66C2;
+.hero-text h1{
+    font-size:4rem;
     margin-bottom:15px;
 }
 
+.hero-text h2{
+    color:#38bdf8;
+    margin-bottom:20px;
+    font-weight:500;
+}
+
+.hero-text p{
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.hero-img img{
+    width:340px;
+    height:340px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid #38bdf8;
+    box-shadow:0 0 40px rgba(56,189,248,.4);
+}
+
+/* BOTÕES */
+
+.btn{
+    display:inline-block;
+    padding:14px 25px;
+    margin-right:12px;
+    margin-top:10px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.primary{
+    background:#38bdf8;
+    color:#0f172a;
+}
+
+.secondary{
+    border:1px solid #38bdf8;
+    color:#38bdf8;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* SECTIONS */
+
+section{
+    padding:90px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
+}
+
+.card{
+    background:#1e293b;
+    border-radius:15px;
+    padding:30px;
+}
+
+/* SKILLS */
+
 .skills{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 
 .skill{
-    background:#0A66C2;
-    color:white;
-    padding:10px 18px;
-    border-radius:25px;
-    font-size:14px;
+    background:#1e293b;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    transition:.3s;
 }
 
-.contact-buttons a{
-    display:inline-block;
-    text-decoration:none;
-    background:#0A66C2;
-    color:white;
-    padding:12px 20px;
-    border-radius:8px;
-    margin-right:10px;
-    margin-top:10px;
+.skill:hover{
+    transform:translateY(-5px);
 }
 
-.cert-list li{
-    margin-bottom:8px;
+.skill h3{
+    color:#38bdf8;
 }
+
+/* CERTIFICAÇÕES */
+
+.cert-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.cert{
+    background:#1e293b;
+    padding:25px;
+    border-radius:12px;
+}
+
+/* PROJETOS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.project{
+    background:#1e293b;
+    padding:25px;
+    border-radius:12px;
+}
+
+/* CONTATO */
+
+.contact{
+    text-align:center;
+}
+
+.contact a{
+    margin:10px;
+}
+
+/* FOOTER */
 
 footer{
     text-align:center;
     padding:30px;
-    background:#003366;
-    color:white;
+    color:#94a3b8;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column-reverse;
+    text-align:center;
+}
+
+.hero-text h1{
+    font-size:2.7rem;
+}
+
+.hero-img img{
+    width:250px;
+    height:250px;
+}
+
+nav ul{
+    display:none;
+}
+
 }
 
 </style>
@@ -107,143 +246,180 @@ footer{
 
 <body>
 
-<header>
+<nav>
+<div class="logo">João Paulo Dantas</div>
 
-<!-- Depois vamos trocar para sua foto -->
-<img src="foto.jpg" alt="João Paulo Dantas" class="profile-photo">
+<ul>
+<li><a href="#sobre">Sobre</a></li>
+<li><a href="#skills">Competências</a></li>
+<li><a href="#certs">Certificações</a></li>
+<li><a href="#projetos">Projetos</a></li>
+<li><a href="#contato">Contato</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+
+<div class="hero-text">
 
 <h1>João Paulo Dantas</h1>
 
-<p>
-Analista de Sistemas ERP | Protheus | Logix | ADVPL | SQL
-</p>
-
-</header>
-
-<div class="container">
-
-<div class="card">
-
-<h2>Sobre Mim</h2>
+<h2>Analista de Sistemas ERP</h2>
 
 <p>
-Analista de Sistemas com experiência em ERP TOTVS Protheus e Logix,
-atuando em implantação de sistemas, levantamento e mapeamento de processos,
-desenvolvimento ADVPL, integrações EDI, bancos de dados SQL e suporte corporativo.
-
-Possuo experiência em customizações ERP, análise de requisitos,
-parametrização de sistemas e melhoria contínua de processos empresariais.
+Especialista em ERP Protheus e Logix, desenvolvimento ADVPL,
+SQL Informix, implantação de sistemas, levantamento de requisitos,
+mapeamento de processos e integrações corporativas.
 </p>
 
-</div>
+<a href="curriculo.pdf" class="btn primary" target="_blank">
+📄 Currículo
+</a>
 
-<div class="card">
-
-<h2>Competências</h2>
-
-<div class="skills">
-
-<span class="skill">Protheus</span>
-<span class="skill">Logix</span>
-<span class="skill">ADVPL</span>
-<span class="skill">MVC Protheus</span>
-<span class="skill">PO-UI</span>
-<span class="skill">REST</span>
-<span class="skill">SQL Informix</span>
-<span class="skill">DB2</span>
-<span class="skill">Oracle</span>
-<span class="skill">MySQL</span>
-<span class="skill">EDI</span>
-<span class="skill">Implantação ERP</span>
-<span class="skill">Mapeamento de Processos</span>
-<span class="skill">Levantamento de Requisitos</span>
-<span class="skill">Windows Server</span>
-<span class="skill">Linux</span>
-<span class="skill">Python</span>
-<span class="skill">QA</span>
-<span class="skill">ITIL</span>
-<span class="skill">COBIT</span>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>Áreas de Atuação</h2>
-
-<ul>
-<li>Implantação de Sistemas ERP</li>
-<li>Levantamento e Mapeamento de Processos</li>
-<li>Desenvolvimento ADVPL</li>
-<li>Customizações Protheus</li>
-<li>Integrações EDI</li>
-<li>Consultas SQL e Banco de Dados</li>
-<li>Suporte ERP e Sistemas Corporativos</li>
-<li>Parametrização de Ambientes</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2>Certificações e Cursos</h2>
-
-<ul class="cert-list">
-
-<li>TOTVS - Aplicações PO-UI e Serviços REST</li>
-<li>TOTVS - ADVPL</li>
-<li>TOTVS - Aplicativos BackOffice</li>
-<li>TOTVS - Migração de Versão Protheus</li>
-<li>SQL do Básico ao Avançado</li>
-<li>Administração DB2</li>
-<li>Arquitetura e Instalação Protheus</li>
-<li>ITIL Foundation</li>
-<li>COBIT 5</li>
-<li>QA e Automação de Testes</li>
-<li>SAP</li>
-
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2>Contato</h2>
-
-<p>
-📞 (11) 95330-2043
-</p>
-    
-<div class="contact-buttons">
-
-<a href="LINKEDIN_AQUI" target="_blank">
+<a href="https://www.linkedin.com/in/joão-paulo-dantas-207416240" class="btn secondary" target="_blank">
 LinkedIn
 </a>
 
-<a href="https://github.com/JoaoPauloDantas" target="_blank">
+</div>
+
+<div class="hero-img">
+<img src="foto.jpg" alt="João Paulo Dantas">
+</div>
+
+</section>
+
+<section id="sobre">
+
+<h2 class="section-title">Sobre Mim</h2>
+
+<div class="card">
+
+<p>
+Analista de Sistemas com experiência em ambientes ERP Protheus e Logix,
+atuando em implantação de sistemas, levantamento e mapeamento de processos,
+desenvolvimento ADVPL, SQL Informix, Oracle e MySQL.
+
+Tenho experiência em suporte ERP, parametrizações, integrações EDI,
+customizações de sistemas e melhoria contínua de processos empresariais.
+</p>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2 class="section-title">Competências</h2>
+
+<div class="skills">
+
+<div class="skill"><h3>Protheus</h3></div>
+<div class="skill"><h3>Logix</h3></div>
+<div class="skill"><h3>ADVPL</h3></div>
+<div class="skill"><h3>MVC Protheus</h3></div>
+<div class="skill"><h3>SQL Informix</h3></div>
+<div class="skill"><h3>Oracle</h3></div>
+<div class="skill"><h3>MySQL</h3></div>
+<div class="skill"><h3>EDI</h3></div>
+<div class="skill"><h3>REST</h3></div>
+<div class="skill"><h3>PO-UI</h3></div>
+<div class="skill"><h3>Implantação ERP</h3></div>
+<div class="skill"><h3>Mapeamento de Processos</h3></div>
+
+</div>
+
+</section>
+
+<section id="certs">
+
+<h2 class="section-title">Certificações</h2>
+
+<div class="cert-grid">
+
+<div class="cert">
+<h3>TOTVS</h3>
+<p>ADVPL, PO-UI, REST, Backoffice, Migração de Versão</p>
+</div>
+
+<div class="cert">
+<h3>SQL e Banco de Dados</h3>
+<p>SQL Avançado, Informix, DB2 IBM</p>
+</div>
+
+<div class="cert">
+<h3>Governança e Processos</h3>
+<p>ITIL, COBIT e SAP</p>
+</div>
+
+<div class="cert">
+<h3>Qualidade</h3>
+<p>QA e Automação de Testes</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="projetos">
+
+<h2 class="section-title">Projetos e Atuação</h2>
+
+<div class="projects">
+
+<div class="project">
+<h3>Implantação ERP</h3>
+<p>Levantamento de requisitos, parametrização e acompanhamento de implantação.</p>
+</div>
+
+<div class="project">
+<h3>Integrações EDI</h3>
+<p>Automação e integração de processos entre sistemas corporativos.</p>
+</div>
+
+<div class="project">
+<h3>Desenvolvimento ADVPL</h3>
+<p>Customizações, relatórios, consultas SQL e rotinas MVC.</p>
+</div>
+
+<div class="project">
+<h3>Mapeamento de Processos</h3>
+<p>Análise e melhoria contínua de processos de negócio.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contato">
+
+<h2 class="section-title">Contato</h2>
+
+<div class="contact">
+
+<a class="btn primary"
+href="mailto:SEU_EMAIL">
+📧 E-mail
+</a>
+
+<a class="btn secondary"
+href="https://wa.me/55DDDNUMERO"
+target="_blank">
+💬 WhatsApp
+</a>
+
+<a class="btn secondary"
+href="https://github.com/JoaoPauloDantas"
+target="_blank">
 GitHub
 </a>
 
-<a href="mailto:joaopaulo_74@outlook.com">
-E-mail
-</a>
-
-<a href="https://wa.me/5511953302043" target="_blank">
-WhatsApp
-</a>
-
 </div>
 
-</div>
-
-</div>
+</section>
 
 <footer>
 
-<p>
 © 2026 João Paulo Dantas • Analista de Sistemas ERP
-</p>
 
 </footer>
 
