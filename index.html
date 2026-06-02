@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
+<style>
         :root {
             /* FUNDO ESCURO INSPIRADO NO MODELO */
             --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -26,6 +26,30 @@
             --border-color: #e2e8f0;
             --shadow-premium: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
         }
+
+        /* NOVOS ESTILOS DO CARD DE BOAS-VINDAS */
+        .welcome-card {
+            background: linear-gradient(to right, #ffffff, var(--primary-light)); 
+            border-left: 5px solid var(--primary); 
+        }
+
+        .welcome-title {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .welcome-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .welcome-text strong {
+            color: var(--primary);
+        }
+
+        /* ... o restante do seu CSS antigo continua aqui para baixo ... */
 
         * {
             margin: 0;
@@ -390,7 +414,13 @@
 
         <!-- CONTEÚDO EM BLOCOS DE ALTO CONTRASTE -->
         <main>
-            
+            <section id="welcome" class="welcome-card">
+    <h1 class="welcome-title">Bem-vindo ao meu Portfólio Profissional</h1>
+    <p class="welcome-text">
+        Olá! Sou o <strong>João Paulo</strong>. Explore minha trajetória técnica em sistemas ERP, 
+        onde transformo processos complexos em soluções eficientes através de tecnologia e inovação.
+    </p>
+</section>
             <section id="sobre">
                 <h2 class="section-title">Sobre Mim</h2>
                 <div class="about-text">
