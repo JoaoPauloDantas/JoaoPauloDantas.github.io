@@ -10,9 +10,20 @@
     <meta name="author" content="João Paulo Dantas">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --bg-body: #f1f5f9;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --primary-light: #e0f2fe;
+            --border-color: #e2e8f0;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -21,305 +32,317 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: #0f172a;
-            color: #f8fafc;
-            padding-top: 80px; /* Evita que o topo do site suma atrás da navbar fixa */
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
         }
 
-        /* NAVBAR & HEADER */
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(15, 23, 42, .95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+        /* CONTAINER PRINCIPAL DO MODELO RESUMED/LINKEDIN */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 30px;
+            align-items: start;
         }
 
-        nav {
-            padding: 20px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
+        /* COLUNA DA ESQUERDA - SIDEBAR PERFIL FIXA */
+        aside {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 35px 25px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            position: sticky;
+            top: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
         }
 
-        .logo {
-            font-size: 1.3rem;
+        .profile-img img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--primary-light);
+            margin-bottom: 20px;
+        }
+
+        aside h1 {
+            font-size: 1.6rem;
             font-weight: 700;
-            color: #38bdf8;
+            color: var(--text-main);
+            margin-bottom: 5px;
         }
 
-        nav ul {
+        aside h2 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .sidebar-contacts {
+            text-align: left;
+            border-top: 1px solid var(--border-color);
+            padding-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .sidebar-contacts a {
             display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        nav a {
-            color: white;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-main);
             text-decoration: none;
-            transition: .3s;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
         }
 
-        nav a:hover {
-            color: #38bdf8;
+        .sidebar-contacts a:hover {
+            color: var(--primary);
         }
 
-        .top-contact {
-            display: flex;
-            gap: 15px;
-        }
-
-        .top-contact a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: .3s;
-        }
-
-        .top-contact a:hover {
-            color: #38bdf8;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: calc(100vh - 80px);
+        /* BOTÕES DA SIDEBAR */
+        .btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 80px;
-            padding: 60px 10%;
-        }
-
-        .hero-text {
-            max-width: 650px;
-        }
-
-        .hero-text h1 {
-            font-size: 4rem;
-            margin-bottom: 15px;
-        }
-
-        .hero-text h2 {
-            color: #38bdf8;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .hero-text p {
-            color: #cbd5e1;
-            line-height: 1.8;
-            margin-bottom: 30px;
-        }
-
-        .hero-img img {
-            width: 340px;
-            height: 340px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid #38bdf8;
-            box-shadow: 0 0 40px rgba(56, 189, 248, .4);
-        }
-
-        /* BOTÕES */
-        .btn {
-            display: inline-block;
-            padding: 14px 25px;
-            margin-right: 12px;
-            margin-top: 10px;
-            border-radius: 10px;
+            gap: 8px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: .3s;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            transition: all 0.2s;
         }
 
-        .primary {
-            background: #38bdf8;
-            color: #0f172a;
+        .btn.primary {
+            background-color: var(--primary);
+            color: #ffffff;
         }
 
-        .primary:hover {
-            background: #0ea5e9;
-            transform: translateY(-3px);
+        .btn.primary:hover {
+            background-color: var(--primary-hover);
         }
 
-        .secondary {
-            border: 1px solid #38bdf8;
-            color: #38bdf8;
-            background: transparent;
+        .btn.secondary {
+            border: 1px solid var(--border-color);
+            background-color: transparent;
+            color: var(--text-main);
         }
 
-        .secondary:hover {
-            background: #38bdf8;
-            color: #0f172a;
-            transform: translateY(-3px);
+        .btn.secondary:hover {
+            background-color: #f8fafc;
+            border-color: var(--text-muted);
         }
 
-        /* SECTIONS */
+        /* COLUNA DA DIREITA - CONTEÚDO PRINCIPAL */
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
         section {
-            padding: 90px 10%;
-            max-width: 1400px;
-            margin: 0 auto;
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 35px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
         }
 
         .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f1f5f9;
             position: relative;
         }
 
         .section-title::after {
             content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background: #38bdf8;
-            margin: 10px auto 0 auto;
-            border-radius: 2px;
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
         }
 
-        .card {
-            background: #1e293b;
-            border-radius: 15px;
-            padding: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        /* ESTILO CURRÍCULO/TEXTO */
+        .about-text {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
         }
 
-        /* SKILLS */
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        /* GRID DE COMPETÊNCIAS - BADGES ESTILO LINKEDIN */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-badge {
+            background-color: #f8fafc;
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s;
+        }
+
+        .skill-badge:hover {
+            border-color: var(--primary);
+            background-color: var(--primary-light);
+            color: var(--primary-hover);
+        }
+
+        /* ESTRUTURA DE LISTA DE CERTIFICAÇÕES / FORMAÇÃO */
+        .timeline-list {
+            display: flex;
+            flex-direction: column;
             gap: 20px;
         }
 
-        .skill {
-            background: #1e293b;
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .timeline-info h3 {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .timeline-info p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .timeline-action .btn-inline {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--primary);
+            background-color: var(--primary-light);
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .timeline-action .btn-inline:hover {
+            background-color: #cbd5e1;
+            color: var(--primary-hover);
+        }
+
+        /* GRID DE PROJETOS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            transition: .3s;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .skill:hover {
-            transform: translateY(-5px);
-            border-color: #38bdf8;
-            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.1);
-        }
-
-        .skill h3 {
-            color: #38bdf8;
-        }
-
-        /* CERTIFICAÇÕES & PROJETOS */
-        .cert-grid, .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .cert, .project {
-            background: #1e293b;
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: .3s;
         }
 
-        .cert:hover, .project:hover {
-            border-color: #38bdf8;
-            transform: translateY(-3px);
+        .project-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
         }
 
-        .cert h3, .project h3 {
-            color: #f8fafc;
-            margin-bottom: 10px;
+        .project-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
         }
 
-        .cert p, .project p {
-            color: #94a3b8;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-
-        .project .tech-tags {
-            margin-top: auto;
+        .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
         }
 
-        .project .tech-tags span {
-            background: rgba(56, 189, 248, 0.1);
-            color: #38bdf8;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+        .project-tags span {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
             font-weight: 500;
-        }
-
-        /* CONTATO */
-        .contact {
-            text-align: center;
-        }
-
-        .contact p {
-            margin-bottom: 30px;
-            color: #cbd5e1;
-        }
-
-        .contact a {
-            margin: 10px;
         }
 
         /* FOOTER */
         footer {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
             text-align: center;
-            padding: 40px;
-            color: #94a3b8;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background: #0b1329;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        /* RESPONSIVO */
-        @media(max-width: 900px) {
-            body {
-                padding-top: 130px; /* Aumenta o recuo no mobile para acomodar o menu empilhado */
+        /* RESPONSIVIDADE - ADAPTAÇÃO PARA CELULARES */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+                margin: 15px auto;
+                gap: 20px;
             }
 
-            nav {
+            aside {
+                position: relative;
+                top: 0;
+                padding: 25px 20px;
+            }
+
+            section {
+                padding: 25px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
                 flex-direction: column;
-                gap: 15px;
-                padding: 15px;
-            }
-
-            nav ul {
-                display: none; /* Mantém oculto os links internos se preferir focar no contato direto */
-            }
-
-            .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-                gap: 40px;
-                padding: 40px 5%;
-            }
-
-            .hero-text h1 {
-                font-size: 2.7rem;
-            }
-
-            .hero-img img {
-                width: 250px;
-                height: 250px;
+                gap: 12px;
             }
         }
     </style>
@@ -327,231 +350,285 @@
 
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">João Paulo Dantas</div>
-            <ul>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#skills">Competências</a></li>
-                <li><a href="#certs">Certificações</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-            <div class="top-contact">
-                <a href="tel:+5511953302043">📞 +55(11) 95330-2043</a>
-                <a href="mailto:joaopaulo_74@outlook.com">📧 E-mail</a>
-            </div>
-        </nav>
-    </header>
+    <div class="container">
 
-    <main>
-        <section class="hero">
-            <div class="hero-text">
-                <h1>João Paulo Dantas</h1>
-                <h2>Analista de Sistemas ERP</h2>
-                <p>
-                    Analista Pleno em ERP Protheus e Logix, desenvolvimento ADVPL,
-                    SQL Informix, implantação de sistemas, levantamento de requisitos,
-                    mapeamento de processos e integrações corporativas.
-                </p>
-                <a href="curriculo.pdf" class="btn primary" target="_blank">📄 Currículo</a>
-                <a href="https://www.linkedin.com/in/joão-paulo-dantas-207416240" class="btn secondary" target="_blank">LinkedIn</a>
-            </div>
-            <div class="hero-img">
+        <!-- BARRA LATERAL FIXA COM FOTO E CONTATOS -->
+        <aside>
+            <div class="profile-img">
                 <img src="foto1.jpg" alt="João Paulo Dantas">
             </div>
-        </section>
+            <h1>João Paulo Dantas</h1>
+            <h2>Analista de Sistemas ERP</h2>
 
-        <section id="sobre">
-            <h2 class="section-title">Sobre Mim</h2>
-            <div class="card">
-                <p>
-                    Analista de Sistemas com experiência em ambientes ERP Protheus e Logix,
-                    atuando em implantação de sistemas, levantamento e mapeamento de processos,
-                    desenvolvimento ADVPL, SQL Informix, Oracle e MySQL.
-                </p>
-                <br>
-                <p>
-                    Tenho experiência em suporte ERP, parametrizações, integrações EDI,
-                    customizações de sistemas e melhoria contínua de processos empresariais.
-                </p>
+            <div class="sidebar-contacts">
+                <!-- TELEFONE TOTALMENTE AJUSTADO NO HREF -->
+                <a href="tel:+5511953302043">📞 (11) 95330-2043</a>
+                <a href="mailto:joaopaulo_74@outlook.com">📧 joaopaulo_74@outlook.com</a>
+                <a href="https://github.com/JoaoPauloDantas" target="_blank">💻 github.com/JoaoPauloDantas</a>
             </div>
-        </section>
 
-        <section id="skills">
-            <h2 class="section-title">Competências</h2>
-            <div class="skills">
-                <div class="skill"><h3>Protheus</h3></div>
-                <div class="skill"><h3>Logix</h3></div>
-                <div class="skill"><h3>ADVPL</h3></div>
-                <div class="skill"><h3>MVC Protheus</h3></div>
-                <div class="skill"><h3>SQL Informix</h3></div>
-                <div class="skill"><h3>Oracle</h3></div>
-                <div class="skill"><h3>MySQL</h3></div>
-                <div class="skill"><h3>EDI</h3></div>
-                <div class="skill"><h3>REST</h3></div>
-                <div class="skill"><h3>PO-UI</h3></div>
-                <div class="skill"><h3>Implantação ERP</h3></div>
-                <div class="skill"><h3>Mapeamento de Processos</h3></div>
-            </div>
-        </section>
+            <a href="curriculo.pdf" class="btn primary" target="_blank">📄 Baixar Currículo</a>
+            <a href="https://www.linkedin.com/in/joão-paulo-dantas-207416240" class="btn secondary" target="_blank">Acessar LinkedIn</a>
+            <a href="https://wa.me/5511953302043" class="btn secondary" target="_blank">Conversar no WhatsApp</a>
+        </aside>
 
-        <section id="formacao">
-            <h2 class="section-title">Formação Acadêmica</h2>
-            <div class="cert-grid">
-                <div class="cert">
-                    <div>
-                        <h3>Graduação em Gestão de Tecnologia da Informação</h3>
-                        <p>Ensino Superior Completo</p>
-                    </div>
-                    <a class="btn secondary" href="diploma-gestao-ti.pdf" target="_blank">🎓 Ver Diploma</a>
-                </div>
-            </div>
-        </section>
+        <!-- CONTEÚDO CORRIDO DA DIREITA (IGUAL AO MODELO) -->
+        <main>
             
-        <section id="certs">
-            <h2 class="section-title">Certificações</h2>
-            <div class="cert-grid">
-                <div class="cert">
-                    <h3>TOTVS - Configurador v12.1.2410</h3>
-                    <p>Certificação TOTVS Tecnologia (Linha Protheus)</p>
-                    <a class="btn secondary" href="https://educacao.totvs.com/#/certificate-authenticity/eyJpZEVucm9sbG1lbnQiOjExMjMyMDE3fQ==" target="_blank">📜 Ver Certificado</a>
+            <section id="sobre">
+                <h2 class="section-title">Sobre Mim</h2>
+                <div class="about-text">
+                    <p>
+                        Analista de Sistemas Pleno com sólida experiência em ecossistemas ERP Protheus e Logix. Atuação focada em implantação de sistemas, levantamento e mapeamento de processos de negócio, desenvolvimento ADVPL, além de consultas e integrações via bancos de dados SQL Informix, Oracle e MySQL.
+                    </p>
+                    <p>
+                        Especialista em suporte de alta complexidade ao ERP, parametrizações de módulos, integrações de dados via arquitetura EDI e REST, desenvolvimento de customizações e foco constante na melhoria contínua de rotinas corporativas.
+                    </p>
                 </div>
-             
-                <div class="cert">
-                    <h3>TOTVS - Aplicações PO-UI e Serviços REST</h3>
-                    <p>Certificação TOTVS Tecnologia (Linha Protheus)</p>
-                    <a class="btn secondary" href="https://educacao.totvs.com/#/certificate-authenticity/eyJpZEVucm9sbG1lbnQiOjkyNDQxOTB9" target="_blank">📜 Ver Certificado</a>
-                </div>
+            </section>
 
-                <div class="cert">
-                    <h3>TOTVS - ADVPL/BA</h3>
-                    <p>Playlist Suporte (Linha Protheus)</p>
-                    <a class="btn secondary" href="https://educacao.totvs.com/#/certificate-authenticity/eyJpZEVucm9sbG1lbnQiOjgyNTIyMTl9" target="_blank">📜 Ver Certificado</a>
+            <section id="skills">
+                <h2 class="section-title">Competências</h2>
+                <div class="skills-grid">
+                    <div class="skill-badge">Protheus</div>
+                    <div class="skill-badge">Logix</div>
+                    <div class="skill-badge">ADVPL</div>
+                    <div class="skill-badge">MVC Protheus</div>
+                    <div class="skill-badge">SQL Informix</div>
+                    <div class="skill-badge">Oracle</div>
+                    <div class="skill-badge">MySQL</div>
+                    <div class="skill-badge">EDI</div>
+                    <div class="skill-badge">REST</div>
+                    <div class="skill-badge">PO-UI</div>
+                    <div class="skill-badge">Implantação ERP</div>
+                    <div class="skill-badge">Mapeamento de Processos</div>
                 </div>
+            </section>
 
-                <div class="cert">
-                    <h3>TOTVS - Aplicativos BackOffice</h3>
-                    <p>Backoffice Protheus</p>
-                    <a class="btn secondary" href="https://educacao.totvs.com/#/certificate-authenticity/eyJpZEVucm9sbG1lbnQiOjc1ODg1MDR9" target="_blank">📜 Ver Certificado</a>
-                </div>
-
-                <div class="cert">
-                    <h3>TOTVS - Programação para Não Programadores</h3>
-                    <p>Fundamentos de desenvolvimento Protheus</p>
-                    <a class="btn secondary" href="https://educacao.totvs.com/#/certificate-authenticity/eyJpZEVucm9sbG1lbnQiOj6NDA5Nzh9" target="_blank">📜 Ver Certificado</a>
-                </div>
-
-                <div class="cert">
-                    <h3>TOTVS - Procedimento de Migração de Versão</h3>
-                    <p>Atualização e migração do ambiente Protheus</p>
-                    <a class="btn secondary" href="https://educacao.totvs.com/#/certificate-authenticity/eyJpZEVucm9sbG1lbnQiOjY2Mzg2Nzh9" target="_blank">📜 Ver Certificado</a>
-                </div>
-
-                <div class="cert">
-                    <h3>Udemy - Executar consultas SQL no Protheus com ADVPL</h3>
-                    <p>Executar consultas SQL no Protheus com ADVPL e Desenvolvimento de Relatórios</p>
-                    <a class="btn secondary" href="https://www.udemy.com/certificate/UC-e9f28de9-8b2a-40a0-9784-cd44f9c74a7d" target="_blank">📜 Ver Certificado</a>
-                </div>
-
-                <div class="cert">
-                    <h3>SQL para Análise de Dados</h3>
-                    <p>Do Básico ao Avançado</p>
-                    <a class="btn secondary" href="https://penske.udemy.com/certificate/UC-9d0cec1a-1eab-4971-8cc9-92693771ff4d/" target="_blank">📜 Ver Certificado</a>
-                </div>
-
-                <div class="cert">
-                    <h3>Protheus APSDU</h3>
-                    <p>Administração e manutenção de ambiente Protheus</p>
-                    <a class="btn secondary" href="https://penske.udemy.com/certificate/UC-06918c1c-3f33-4fc4-a94f-0db9a67c4e9f/" target="_blank">📜 Ver Certificado</a>
-                </div>
-
-                <div class="cert">
-                    <h3>Protheus 12 - Arquitetura e Instalação</h3>
-                    <p>Infraestrutura e implantação</p>
-                    <a class="btn secondary" href="https://penske.udemy.com/certificate/UC-5b6bfcde-277f-486e-bc5b-bde4224df829/" target="_blank">📜 Ver Certificado</a>
-                </div>
-
-                <div class="cert">
-                    <h3>DB2 IBM</h3>
-                    <p>Administração de Banco de Dados</p>
-                    <a class="btn secondary" href="https://penske.udemy.com/certificate/UC-0ba5d3a0-55fe-4ef9-acbb-4d8e5b1959d6/" target="_blank">📜 Ver Certificado</a>
-                </div>
-
-                <div class="cert">
-                    <h3>ITIL Foundation</h3>
-                    <p>Fundamentos de Gestão de Serviços de TI</p>
-                    <a class="btn secondary" href="https://cursos.alura.com.br/certificate/f30c7abf-e125-4029-849f-7f82f4f8e0e2" target="_blank">📜 Ver Certificado</a>
-                </div>
-
-                <div class="cert">
-                    <h3>COBIT 5</h3>
-                    <p>Governança de TI</p>
-                    <a class="btn secondary" href="https://cursos.alura.com.br/certificate/efce0345-51a8-4e9e-825b-68498cf33277" target="_blank">📜 Ver Certificado</a>
-                </div>
-
-                <div class="cert">
-                    <h3>SAP - Gestão e Aplicações</h3>
-                    <p>Fundamentos ERP SAP</p>
-                    <a class="btn secondary" href="https://cursos.alura.com.br/certificate/93f7589c-3718-4b19-bc6c-96bd6656e5e7" target="_blank">📜 Ver Certificado</a>
-                </div>
-
-                <div class="cert">
-                    <h3>QA - Processos e Automação de Testes</h3>
-                    <p>Qualidade de Software</p>
-                    <a class="btn secondary" href="https://cursos.alura.com.br/certificate/062c11ca-4c65-4a18-b871-95d63ca7de23" target="_blank">📜 Ver Certificado</a>
-                </div>
-            </div>
-        </section> <section id="projetos">
-            <h2 class="section-title">Projetos e Atuação</h2>
-            <div class="projects">
-                <div class="project">
-                    <h3>Implantação ERP</h3>
-                    <p>Levantamento de requisitos, parametrização e acompanhamento de implantação.</p>
-                    <div class="tech-tags">
-                        <span>Protheus</span><span>Logix</span><span>Processos</span>
+            <section id="formacao">
+                <h2 class="section-title">Formação Acadêmica</h2>
+                <div class="timeline-list">
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>Graduação em Gestão de Tecnologia da Informação</h3>
+                            <p>Ensino Superior Completo</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="diploma-gestao-ti.pdf" target="_blank">🎓 Ver Diploma</a>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="project">
-                    <h3>Integrações EDI</h3>
-                    <p>Automação e integração de processos entre sistemas corporativos.</p>
-                    <div class="tech-tags">
-                        <span>XML / JSON</span><span>REST</span><span>ADVPL</span>
+            <section id="certs">
+                <h2 class="section-title">Certificações Profissionais</h2>
+                <div class="timeline-list">
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>TOTVS - Configurador v12.1.2410</h3>
+                            <p>Certificação TOTVS Tecnologia (Linha Protheus)</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://educacao.totvs.com/#/certificate-authenticity/eyJpZEVucm9sbG1lbnQiOjExMjMyMDE3fQ==" target="_blank">📜 Certificado</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="project">
-                    <h3>Desenvolvimento ADVPL</h3>
-                    <p>Customizações, relatórios, consultas SQL e rotinas MVC.</p>
-                    <div class="tech-tags">
-                        <span>ADVPL</span><span>MVC</span><span>SQL Informix</span>
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>TOTVS - Aplicações PO-UI e Serviços REST</h3>
+                            <p>Certificação TOTVS Tecnologia (Linha Protheus)</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://educacao.totvs.com/#/certificate-authenticity/eyJpZEVucm9sbG1lbnQiOjkyNDQxOTB9" target="_blank">📜 Certificado</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="project">
-                    <h3>Mapeamento de Processos</h3>
-                    <p>Análise e melhoria contínua de processos de negócio.</p>
-                    <div class="tech-tags">
-                        <span>BPMN</span><span>ITIL</span><span>COBIT</span>
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>TOTVS - ADVPL/BA</h3>
+                            <p>Playlist Suporte (Linha Protheus)</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://educacao.totvs.com/#/certificate-authenticity/eyJpZEVucm9sbG1lbnQiOjgyNTIyMTl9" target="_blank">📜 Certificado</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <section id="contato">
-            <h2 class="section-title">Contato</h2>
-            <div class="contact">
-                <p>Estou disponível para novos projetos, desafios profissionais e parcerias.</p>
-                <a class="btn primary" href="mailto:joaopaulo_74@outlook.com">📧 E-mail</a>
-                <a class="btn secondary" href="https://wa.me/5511953302043" target="_blank">💬 WhatsApp</a>
-                <a class="btn secondary" href="https://github.com/JoaoPauloDantas" target="_blank">GitHub</a>
-            </div>
-        </section>
-    </main>
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>TOTVS - Aplicativos BackOffice</h3>
+                            <p>Backoffice Protheus</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://educacao.totvs.com/#/certificate-authenticity/eyJpZEVucm9sbG1lbnQiOjc1ODg1MDR9" target="_blank">📜 Certificado</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>TOTVS - Programação para Não Programadores</h3>
+                            <p>Fundamentos de desenvolvimento Protheus</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://educacao.totvs.com/#/certificate-authenticity/eyJpZEVucm9sbG1lbnQiOjY2NDA5Nzh9" target="_blank">📜 Certificado</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>TOTVS - Procedimento de Migração de Versão</h3>
+                            <p>Atualização e migração do ambiente Protheus</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://educacao.totvs.com/#/certificate-authenticity/eyJpZEVucm9sbG1lbnQiOjY2Mzg2Nzh9" target="_blank">📜 Certificado</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>Udemy - Executar consultas SQL no Protheus com ADVPL</h3>
+                            <p>Executar consultas SQL no Protheus com ADVPL e Desenvolvimento de Relatórios</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://www.udemy.com/certificate/UC-e9f28de9-8b2a-40a0-9784-cd44f9c74a7d" target="_blank">📜 Certificado</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>SQL para Análise de Dados</h3>
+                            <p>Do Básico ao Avançado</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://penske.udemy.com/certificate/UC-9d0cec1a-1eab-4971-8cc9-92693771ff4d/" target="_blank">📜 Certificado</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>Protheus APSDU</h3>
+                            <p>Administração e manutenção de ambiente Protheus</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://penske.udemy.com/certificate/UC-06918c1c-3f33-4fc4-a94f-0db9a67c4e9f/" target="_blank">📜 Certificado</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>Protheus 12 - Arquitetura e Instalação</h3>
+                            <p>Infraestrutura e implantação</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://penske.udemy.com/certificate/UC-5b6bfcde-277f-486e-bc5b-bde4224df829/" target="_blank">📜 Certificado</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>DB2 IBM</h3>
+                            <p>Administração de Banco de Dados</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://penske.udemy.com/certificate/UC-0ba5d3a0-55fe-4ef9-acbb-4d8e5b1959d6/" target="_blank">📜 Certificado</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>ITIL Foundation</h3>
+                            <p>Fundamentos de Gestão de Serviços de TI</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://cursos.alura.com.br/certificate/f30c7abf-e125-4029-849f-7f82f4f8e0e2" target="_blank">📜 Certificado</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>COBIT 5</h3>
+                            <p>Governança de TI</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://cursos.alura.com.br/certificate/efce0345-51a8-4e9e-825b-68498cf33277" target="_blank">📜 Certificado</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>SAP - Gestão e Aplicações</h3>
+                            <p>Fundamentos ERP SAP</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://cursos.alura.com.br/certificate/93f7589c-3718-4b19-bc6c-96bd6656e5e7" target="_blank">📜 Certificado</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-info">
+                            <h3>QA - Processos e Automação de Testes</h3>
+                            <p>Qualidade de Software</p>
+                        </div>
+                        <div class="timeline-action">
+                            <a class="btn-inline" href="https://cursos.alura.com.br/certificate/062c11ca-4c65-4a18-b871-95d63ca7de23" target="_blank">📜 Certificado</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="projetos">
+                <h2 class="section-title">Projetos e Atuação</h2>
+                <div class="projects-grid">
+                    
+                    <div class="project-card">
+                        <div>
+                            <h3>Implantação ERP</h3>
+                            <p>Levantamento de requisitos, parametrização, testes integrados e acompanhamento de implantação.</p>
+                        </div>
+                        <div class="project-tags">
+                            <span>Protheus</span><span>Logix</span><span>Gestão</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <h3>Integrações EDI</h3>
+                            <p>Automação e troca eletrônica de dados estruturados e processos entre sistemas corporativos.</p>
+                        </div>
+                        <div class="project-tags">
+                            <span>XML / JSON</span><span>REST</span><span>ADVPL</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <h3>Desenvolvimento ADVPL</h3>
+                            <p>Customizações complexas de rotinas, desenvolvimento de relatórios e arquiteturas MVC.</p>
+                        </div>
+                        <div class="project-tags">
+                            <span>ADVPL</span><span>MVC</span><span>SQL Informix</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <h3>Mapeamento de Processos</h3>
+                            <p>Análise de fluxo de valor, identificação de gargalos e melhoria contínua de processos de negócio.</p>
+                        </div>
+                        <div class="project-tags">
+                            <span>BPMN</span><span>ITIL</span><span>COBIT 5</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
 
     <footer>
-        © 2026 João Paulo Dantas • Analista de Sistemas ERP
+        © 2026 João Paulo Dantas • Analista de Sistemas ERP Pleno
     </footer>
 
 </body>
